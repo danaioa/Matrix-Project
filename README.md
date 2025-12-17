@@ -1,4 +1,4 @@
-# MATRIX PROJECT
+# Undercover 2.1 - Matrix Game Project
 
 
 This project implements a menu system and an interactive interface on an **8x8 LED Matrix** and a **16x2 LCD screen**, controlled by a **joystick**.
@@ -134,5 +134,143 @@ The LCD uses custom characters (Full Heart `byte(0)` and Empty Heart `byte(1)`) 
 <a href="https://youtu.be/v66D2lMctEg" target="_blank">Watch on YouTube</a>
 
 </details>
+
+
+
+
+
+
+## Introduction & Backstory
+
+**Undercover 2.1** is a stealth-based exploration game designed to challenge the player’s **spatial awareness, memory, and strategic thinking**.  
+Inspired by classic dungeon crawlers and early stealth titles such as *Metal Gear (NES)*, the game places the player inside a dark, hostile environment where **information is the most valuable resource**.
+
+The project was built around the idea of implementing a **Fog of War** mechanic on a **logical 16×16 map**, while using a **physical 8×8 LED matrix** as a moving viewport.  
+This design choice increases tension and difficulty, forcing the player to explore carefully and remember previously revealed areas.
+
+From a technical perspective, the project emphasizes **modularity and clean architecture**, separating:
+- game logic,
+- display rendering,
+- sound and feedback systems.
+
+This approach results in a smoother gameplay experience and a **scalable, professional codebase**.
+
+---
+
+## Game Description
+
+**Undercover** is a stealth-exploration game where you play as a secret agent infiltrating a high-security facility to recover lost intelligence data.
+
+**Logical World & Camera System**
+
+- The game world is a **16×16 grid**.
+- The **8×8 LED matrix** functions as a camera that follows the player.
+- Only a portion of the world is visible at any time, reinforcing exploration and memorization.
+
+
+**Dynamic Fog of War**
+
+- The map starts in complete darkness.
+- Tiles are revealed only when the player moves close to them.
+- Once revealed, tiles remain permanently visible on the explored map.
+
+
+**Procedural Level Design**
+
+- Each level generates walls and obstacles dynamically.
+- This creates maze-like environments and prevents linear navigation paths.
+
+
+**Enemies & AI**
+
+- Guards patrol the facility using **semi-random AI patterns**.
+- Enemies can track the player’s position.
+- Difficulty scales progressively:
+  - more enemies,
+  - increased movement speed.
+
+
+**Intelligence Items**
+
+- Intelligence data is represented by **blinking pixels**.
+- All items must be collected before exiting the level.
+
+
+**Advanced Sensing Mechanics (Ultrasonic Sensor)**
+
+The ultrasonic sensor is used as a **multi-functional gameplay mechanic**:
+
+**Shield Mode**
+- Activated when hand distance is **< 12 cm**
+- Creates an energy shield that prevents losing lives on enemy collision
+
+**Radar Mode **
+- Activated when hand distance is between **12–30 cm**
+- Temporarily reveals all enemies and objectives, bypassing Fog of War
+- Each second of usage reduces the score, creating a **risk–reward trade-off**
+
+---
+
+## How to Play
+
+### Movement
+- Navigate the map using the **joystick**.
+
+### Objective
+- Collect all flashing intelligence items.  
+- Once collected, the **Exit Portal at (15, 15)** becomes active and starts blinking.
+
+### Combat
+- Press the joystick button briefly to fire a **laser beam** in the current facing direction, neutralizing guards.
+
+### Abilities (Ultrasonic Sensor)
+- Shield → hand < 12 cm  
+- Radar → hand between 12–30 cm  
+
+### Goal
+- Survive **3 levels** and achieve a high score for the leaderboard.
+
+---
+
+## Menu Functionality
+
+The menu is fully navigable using the joystick and includes:
+
+- **Start Game** – Begin the mission at Level 1
+- **Settings**
+  - Enter Name – Set 3-letter initials for highscores
+  - LCD Brightness – Adjustable, saved to EEPROM
+  - Matrix Brightness – Adjustable LED intensity with live preview
+  - Sound – Toggle audio ON/OFF
+  - Reset Highscores – Clears leaderboard data
+- **Highscore** – Displays the Top 3 agents
+- **How to Play** – Short gameplay instructions
+- **About** – Credits, version information, and GitHub link
+
+---
+
+## Components Used
+
+| Component | Quantity |
+|---------|----------|
+| Arduino Uno | 1 |
+| 8×8 LED Matrix (MAX7219) | 1 |
+| LCD 1602 | 1 |
+| Analog Joystick | 1 |
+| HC-SR04 Ultrasonic Sensor | 1 |
+| Buzzer | 1 |
+| Potentiometer | 1 |
+| Resistors, Jumper Wires, Breadboard | as needed |
+
+---
+
+## Photo of the setup:
+<img width="476" height="300" alt="image" src="https://github.com/user-attachments/assets/40f2155d-0395-49bc-951d-a28a5aa25129" />
+
+
+## Click here for the video demonstrating functionality: 
+  <a href="https://youtu.be/C5JeNorHvAo">Watch on YouTube</a>
+
+
 
 
