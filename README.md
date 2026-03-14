@@ -1,12 +1,6 @@
 # Undercover 2.1 - Matrix Game Project
 
 
-This project implements a menu system and an interactive interface on an **8x8 LED Matrix** and a **16x2 LCD screen**, controlled by a **joystick**.
-
-<details>
-  <summary><b> Checkpoint 1 </b></summary>
-
-
 
 The code implements the necessary state machine, LCD menu navigation, and the interactive drawing function on the matrix, meeting the core requirements of the project's foundation.
 
